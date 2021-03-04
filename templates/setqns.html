@@ -1,0 +1,71 @@
+
+
+{% extends "layout.html" %}
+
+{% block title %} Set Exam {% endblock %}
+{%  block main %}
+<div class="header">
+    <div class="btn-group"  style="float: right;margin:10px;" role="group">
+        <a class="btn  btn-lg btn-outline-primary" href="/logout"  method="GET" role="button">Logout</a>
+    </div>
+    <div class="btn-group"  style="margin:10px;" role="group" >
+        <a class="btn btn-primary btn-lg " href="/dashboard"  method="GET" role="button">Back</a>
+
+     </div>
+<hr>
+    <center><h1 align="center">Set Exam</h1></center>
+  </div>
+  <hr>
+  <div class="container">
+  <form action=""  method="post">
+      <div class="form-group">
+        <label for="examtitle">Exam title</label>
+        <input type="text" class="form-control"  name="examtitle" >  
+      </div>
+      <hr>
+
+
+      <div class="form-group">
+        <label for="examdateandtime">Exam date and time</label>
+        <input  type="datetime-local" class="form-control" name="examdateandtime" >
+      </div>
+      <hr>
+      <div class="form-group">
+          <label for="examenddateandtime">Exam end date and time</label>
+          <input  type="datetime-local" class="form-control" name="examenddateandtime" >
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="examduration">Exam duration</label>
+        <input type="time" class="form-control" name="examduration"  value="00:00:00">
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="totalqns">Total questions</label>
+        <input type="text" class="form-control" name="totalqns" >  
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="markscrt">Marks for correct answer</label>
+        <input type="text" class="form-control" name="markscrt" >  
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="markswrg">Marks for wrong answer</label>
+        <input type="text" class="form-control" name="markswrg" >  
+      </div>
+      <hr>
+        <div class="form-group">
+          <label for="totalmarks">Total marks</label>
+          <input type="text" class="form-control" name="totalmarks" >  
+        </div>
+        <hr>
+        
+      
+     <center> <button type="submit" class="btn btn-primary btn-lg" >Set Questions</button></center>
+     <br>
+     <br>
+    </form>
+</div>
+  </div>
+  {% endblock %}

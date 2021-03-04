@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}Display questions {% endblock %}
+
+{% block style %}<script src="/static/js/script.js"></script>
+<script src="/static/js/pdf.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+{% endblock %}
+  
+{% block main %}
+<div class="header">
+    <div class="btn-group"  style="float: right;margin:10px;" role="group">
+        <a class="btn  btn-lg btn-outline-primary" href="/logout"  method="GET" role="button">Logout</a>
+    </div>
+    <div class="btn-group"  style="margin:10px;" role="group" >
+        <a class="btn btn-primary btn-lg " href="/dashboard"  method="GET" role="button">Back</a>
+
+    </div>
+    <hr>
+    <center><h1 align="center">Questions</h1></center>
+</div>
+<hr>
+
+       <div class="container" id="main">
+           {% for item in questions %}
+           <br>
+           <tr scope="col">
+               <td>{{item[2]}}</td><br>
+               <br>
+            </tr>
+            <tr>
+
+               {% for o in options %}
+               <td>
+
+                   {% if item[0] == o[1] %}
+
+                  {{o[2]}}) {{o[3]}} <br>
+
+
+                   {% endif %}
+               </td>
+               {% endfor %}
+
+            </tr>
+            {% endfor %}
+           <br>
+       </div>
+
+         <center> <button class="btn btn-primary btn-lg "  id="download" >Download</button></div></center>
+
+
+{% endblock %}

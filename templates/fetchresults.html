@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %} Results {% endblock %}
+       
+{% block style %} {% endblock %}
+  
+{% block main %}
+
+    <div class="header">
+        <div class="btn-group"  style="float: right;margin:10px;" role="group">
+            <a class="btn  btn-lg btn-outline-primary" href="/logout"  method="GET" role="button">Logout</a>
+        </div>
+        <div class="btn-group"  style="margin:10px;" role="group" >
+            <a class="btn btn-primary btn-lg " href="/dashboard"  method="GET" role="button">Back</a>
+
+        </div>
+        <hr>
+        <center><h1 align="center">Fetch Results</h1></center>
+    </div>
+    <hr>
+    <div class="container">
+    <form  method="post">
+        <div class="form-group text-center">
+            <h3><label for="mquery">Enter the title of the exam</label></h3>
+            <input type="text" class="form-control" id="mquery" name="mquery" >
+          </div>
+         
+          
+        
+        <center> <button  type="submit" class="btn btn-primary btn-lg">Fetch</button></center>
+    </form>
+        <br>
+        <br>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <title>Student Update</title>
+
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"></head>
+
+<body>
+<div class="page-wrapper p-t-130 p-b-100 bg-gra-01 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Update</h2>
+                <form method="POST" class="text-center" style="color: #757575;" >
+                    <div class="row row-space">
+
+
+
+                    <div class="col-2">
+                        <div class="input-group">
+                            <label class="label">Student Name</label>
+                            <input class="input--style-4" type="text" id="student_name" name="StudentName" value="{{value[1]}}">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <label class="label">Email</label>
+                            <input class="input--style-4" id="student_email" type="email" name="EmailID" value="{{value[2]}}">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <label class="label">Password</label>
+                            <input class="input--style-4" id="student_password" type="password" name="Password" value="{{value[3]}}">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <label class="label">Contact Number</label>
+                            <input class="input--style-4" type="text" id="student_contact_no" name="ContactNumber" value="{{value[5]}}">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <label class="label">Address</label>
+                            <input class="input--style-4" type="text" id="student_address" name="Address" value="{{value[4]}}">
+                        </div>
+                    </div>
+
+
+
+                    <div class="p-t-15">
+                        <input class="btn btn-lg  btn--radius-2 btn--blue btn-primary btn-block" type="submit" value="Update">
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>

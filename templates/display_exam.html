@@ -1,0 +1,63 @@
+
+{% extends "layout.html" %}
+{% block title %}Exams {% endblock %}
+
+{% block style %} {% endblock %}
+
+{% block main %}
+
+<div class="header">
+    <div class="btn-group"  style="float: right;margin:10px;" role="group">
+        <a class="btn  btn-lg btn-outline-primary" href="/logout"  method="GET" role="button">Logout</a>
+    </div>
+    <div class="btn-group"  style="margin:10px;" role="group" >
+        <a class="btn btn-primary btn-lg " href="/dashboard"  method="GET" role="button">Back</a>
+
+    </div>
+    <hr>
+    <center><h1 align="center">Exams</h1></center>
+</div>
+<hr>
+<div class="container" id="main">
+    <center><table class="table">
+
+
+            <thead>
+            <tr>
+                <th>EXAM TITLE</th>
+                <th>DATE AND TIME</th>
+                <th>DURATION</th>
+                <th>TOTAL MARKS</th>
+                <th>MARKS FOR CORRECT ANSWER</th>
+                <th>MARKS FOR WRONG ANSWER</th>
+            </tr>
+
+            </thead>
+
+        <tbody>
+            {% for row in value %}
+            <tr>
+                <td>{{row[1]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                <td>{{row[7]}}</td>
+
+                <td><a class="btn btn-lg btn-primary" type="submit" method="GET" href="/update/<{{row[0]}}>" role="button" onclick=EnableDisable(row[3])>Edit</a></td>
+                <td><a class="btn btn-lg btn-primary" type="submit" method="GET" href="/delete_exam/<{{row[0]}}>" role="button" onclick=EnableDisable(row[3])>Delete</a></td>
+
+
+            </tr>
+
+
+            </tr>
+        </tbody>
+            {% endfor %}
+        </table>
+
+    </center>
+</div>
+
+
+{% endblock %}

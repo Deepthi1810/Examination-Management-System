@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block style %}
+<style>
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: rgb(115, 172, 238);
+    height:120px;
+    margin-top: 15px;
+
+    width: 240px;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 12px;
+    padding: 1.5em;
+    margin: 5px;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  padding-top: 150px;
+}
+.jumbotron {
+    background-color: aliceblue;
+}
+</style>
+{% endblock %}
+
+{% block main %}
+
+
+<div>
+    {% if msg %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ msg }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+
+    <div class="jumbotron jumbotron-fluid">
+
+        <div class="container">
+
+            <h1 align="center">Welcome to the dashboard</h1>
+            <div class="flex">
+                <a class="btn btn-primary btn-lg " href="/display_exam" method="GET" role="button">Display exam</a>
+                <a class="btn btn-primary btn-lg " href="/setquestions" method="GET" role="button">Set exam</a>
+                <a class="btn btn-primary btn-lg " href="/fetchresults" method="GET" role="button">Fetch Results</a>
+                <a class="btn btn-primary btn-lg " href="/analysis" method="GET" role="button" style="white-space: normal;padding:17px;">Performance Analysis</a>
+                <a class="btn btn-primary btn-lg " href="/logout" method="GET" role="button">Logout</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

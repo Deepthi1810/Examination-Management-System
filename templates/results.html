@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %} Student Results {% endblock %}
+
+
+{% block style %}
+<style>
+    body{
+        height:100%;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+{% block main %}
+
+<div align="center">
+    <div align="right"><a href="/student_dashboard"> <button class="btn btn-lg " >Back</button></a></div>
+    <div style=" padding:20px; text-align:center; border: 10px solid #787878">
+        <!--width:750px; height:550px;-->  <div style=" padding:20px; text-align:center; border: 5px solid #787878">
+        <br><br><br>
+        <span style="font-size:50px; font-weight:bold">CONGRATULATIONS</span>
+        <br><br>
+        <span style="font-size:25px"><i>You have scored {{result}} out of {{total}} !</i></span>
+        <br><br>
+
+    </div>
+    </div>
+</div>
+{% endblock %}

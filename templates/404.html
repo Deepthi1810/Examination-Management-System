@@ -1,0 +1,15 @@
+
+{% extends "layout.html" %}
+
+{% block title %} Error  {% endblock %}
+
+{% block style %}{% endblock %}
+
+
+{% block main %}
+{{e}}
+<center><h1 class="text-danger">Unauthorized action!!</h1> </center>
+
+<center><a class="btn  btn-lg btn-outline-primary" href="/logout"  method="GET" role="button">Logout</a>
+</center>
+{% endblock %}

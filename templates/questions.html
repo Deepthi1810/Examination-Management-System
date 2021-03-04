@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block title %} Questions {% endblock %}
+       
+{% block style %}
+<style>
+    .container{
+    margin-top:40px;
+    }
+   .col-sm {
+  width: 100%;
+
+  display: inline-block;
+
+}
+.opt{
+width:90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+</style>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+
+    <form action="{{ url_for('questions') }}" method="post">
+
+
+        <center><textarea name="ques" class="form-control" rows="8" cols="150" placeholder="Enter the question" ></textarea></center>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm">
+
+                    <input type="radio"  value=1 name="options">  <input type="text" name="a" class="opt" rows="1" >        </div>
+            <div class="col-sm">
+                <input type="radio" value=2   name="options">  <input type="text" name="b" class="opt"  rows="1" ><br><br>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <input type="radio"  value=3  name="options">   <input type="text" class="opt"  name="c" rows="1"><br><br>
+            </div>
+            <div class="col-sm">
+                <input type="radio" value=4  name="options">  <input type="text" class="opt"   name="d" rows="1" ><br><br>
+            </div>
+
+
+        </div>
+        <p class="text-danger">* Select answer before confirming!</p>
+
+        <center><button style="margin:25px;" class="btn btn-primary btn-lg" href="/questions">Confirm Question</button>
+
+       <a class="btn btn-success btn-lg" href="/displayquestions">End</a></center>
+    </form>
+
+    
+
+</div>
+
+{% endblock %}

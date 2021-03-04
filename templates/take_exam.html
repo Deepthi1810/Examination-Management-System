@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block title %}Online Exam {% endblock %}
+
+{% block style %}
+
+
+<style>
+        body{
+          height: 100%;
+          width: 100%;
+          font-family: 'Times New Roman', Times, serif;
+          font-size: 25px;
+      }
+
+    </style>
+<div class="mainpage" style="display:none;">
+    <h1 style="margin:10px" id="timer" class="text-danger" align="center">{{questions[0][8]}}</h1>
+
+
+
+    <form action="{{url_for('results')}}" method="POST">
+        <div class="questionsandanswers">
+            <div class="container" id="main">
+                {% for item in questions %}
+
+                <br>
+                <tr>
+                    <td><b>{{item[2]}}</b></td><br>
+                    <br>
+                </tr>
+
+
+                {% for o in options %}
+
+                <td>
+
+                    {% if item[0] == o[1] %}
+
+                    <input type="radio" name='{{o[1]}}' id='{{item[0]}}' value='{{o[0]}}'> {{o[3]}}<br>
+
+                    {% endif %}
+
+
+
+
+                </td>
+                {% endfor %}
+                </tr>
+                {% endfor %}
+            </div>
+           <center> <a  href="/results" id="btn"><input type="submit" class = "btn btn-danger btn-lg" ></a></center>
+        </div>
+        <div align="center" class="timeup" style="display:none;">
+<center ><img src="https://image.freepik.com/free-photo/times-up-text-green-blackboard-with-alarm-clock_23-2147943618.jpg" width="500px" height="400px"> </center>
+            <center><a  href="/results"><input type="submit" style="margin-top:20px" class = "btn btn-danger btn-lg" ></a></center>
+
+        </div>
+    </form>
+
+    <br>
+</div>
+<script>
+
+var str="{{questions[0][8]}}"
+var end="{{questions[0][13]}}"
+var start = "{{questions[0][7]}}"
+var endDate=new Date(Date.parse(end.replace(/-/g, '/')));
+var startDate=new Date(Date.parse(start.replace(/-/g, '/')));
+ var nowDate=new Date();
+ console.log(nowDate);
+ console.log(endDate);
+  console.log(startDate);
+
+
+        if( Number(nowDate)<Number(endDate) && Number(nowDate)>=Number(startDate) ){
+         $('.mainpage').show();
+        }
+        else{
+        alert("Exam not in progress!");
+        }
+
+
+var time = str.split(":");
+var hours = time[0],
+  minutes = time[1],
+  seconds = time[2],
+  target = new Date(),
+  timerDiv = document.getElementById("timer"),
+  handler;
+
+function init() {
+ // set the target date time with the counter values
+ // counters more then 24h should have a date setup or it wont work
+  target.setHours(hours);
+  target.setMinutes(minutes);
+  target.setSeconds(seconds);
+  target.setMilliseconds(0); // make sure that miliseconds is 0
+  timerDiv.innerHTML = target.toTimeString().split(" ")[0]; // print the value
+}
+
+function updateTimer() {
+  var time = target.getTime();
+  target.setTime(time - 1000); // subtract 1 second with every thick
+  timerDiv.innerHTML = target.toTimeString().split(" ")[0];
+  if (
+    target.getHours() === 0 &&
+    target.getMinutes() === 0 &&
+    target.getSeconds() === 0
+  ) { // counter should stop
+    clearInterval(handler);
+    $('.timeup').show();
+    $('.questionsandanswers').hide();
+    document.getElementById("timer").innerHTML="Timeup";
+  }
+}
+
+handler = setInterval(updateTimer, 1000);
+
+
+init();
+
+</script>
+
+
+
+
+{% endblock %}

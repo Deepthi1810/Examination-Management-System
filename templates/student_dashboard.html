@@ -1,0 +1,89 @@
+<html>
+<head><meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Student Dashboard</title>
+
+
+    <style>
+
+   .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: rgb(115, 172, 238);
+    height:80px;
+    width: 240px;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 12px;
+    padding-right: 20px;
+}
+
+  .column {
+    float: left;
+    width: 50%;
+
+  }
+
+  .column1
+  {
+      float:right;
+      width:25%;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding-right: 20px;
+
+  }
+
+  body{
+      height: 100%;
+      width: 100%;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 25px;
+  }
+  </style>
+</head>
+<body>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <div>
+        <marquee align="top"><h3 class="text-left" align="left">
+            Hi {{name}} , Welcome to the Examination Portal
+        </h3></marquee>
+    </div><br><br><br>
+    <div class="row">
+        <div class="column">
+            <h3>YOUR DETAILS</h3><br>
+
+            <tr>
+                <td align="left"><div align="left">ID : {{stu_id}}</div></td><br>
+                <td align="left"><div align="left">Name : {{name}}</div></td><br>
+                <td align="left"><div align="left">Email ID : {{email}}</div></td><br>
+                <td align="left"><div align="left">Address : {{address}}</div></td><br>
+                <td align="left"><div align="left">Contact Number: {{phno}}</div></td><br>
+
+            </tr>
+        </div>
+        <div class="column1 centered">
+            <br><br>
+            <a href="/exam_schedule"> <button class="btn btn-lg btn-primary btn-block" type="submit" method="GET" href="/exam_schedule">Check Exams</button></a>
+           
+            <br><br>
+                <a href="/displayresults"> <button class="btn btn-lg btn-primary btn-block" type="submit" method="GET" href="/displayresults">Check Results</button></a>
+                <br><br>
+                <a href="/updatestudent"> <button class="btn btn-lg btn-primary btn-block" type="submit" method="GET" href="/updatestudent">Update</button></a>
+                <br><br>
+                <a href="{{url_for('logout')}}"> <button class="btn btn-lg btn-primary btn-block" type="submit" method="GET" href="{{url_for('logout')}}">Logout</button></a>
+
+
+        </div>
+    </div>
+
+    <br><br><br><br><br><br>
+
+
+</body>
+
+
+</html>
